@@ -1,0 +1,42 @@
+.form{
+  display: flex;
+}
+
+.btn {
+  outline: none;
+  box-shadow: none;
+  cursor: pointer;
+  border-width: 2px;
+  border-radius: 3px;
+  border-style: solid;
+  padding: 8px;
+}
+
+.btn-primary {
+  color: #3374CF;
+  border-color: #3374CF;
+  background-color: transparent;
+}
+
+.error-message {
+  margin-top: 10px;
+  color: red;
+  font-size: 10;
+}
+
+input {
+  width: 80%;
+  border: none;
+  border-top: 2px solid #3374CF;
+  border-bottom: 2px solid #3374CF;
+  margin-right: 10px;
+  padding: 5px;
+  line-height: 17px;
+}
+
+input:focus {
+  outline: none;
+  border: none;
+  border-top: 2px solid #3374CF;
+  border-bottom: 2px solid #3374CF;
+}
