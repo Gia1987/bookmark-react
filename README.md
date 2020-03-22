@@ -1,68 +1,66 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Bookmark Manager
 
-## Available Scripts
+This web app imitates a bookmark manager.
 
-In the project directory, you can run:
+- Users can add a bookmark to the list.
+- Bookmarks output as clickable hyperlinks.
+- Users can delete an existing bookmark to the list.
+- There is validation in the form to only allow website urls as valid entries, or an error will be thrown.
+- Users can edit their existing bookmarks.
+- Users list will be stored in localStorage so data is immutable
 
-### `npm start`
+### Installation
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- App is deployed at https://bookmark-react.herokuapp.com/
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+```
+git clone https://github.com/Gia1987/bookmark-react.git
+cd bookmark-react
+npm install
+npm start
+```
 
-### `npm test`
+### Tech Stack
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- React.js using its [create-react-app](https://github.com/facebook/create-react-app)
+- Javascript, HTML, JSX
+- SASS styling
+- ESlint and Prettier
 
-### `npm run build`
+### Planning
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+After some diagramming I outlined my plan;
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+1.  Environment setup - Setting up react using [create-react-app ](https://github.com/facebook/create-react-app), setting up Prettier and ESlint.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2.  Start by making the Header component, and updating styles to index.js and App.js.
 
-### `npm run eject`
+3.  Create the form for the user to input the data in. Data will be sent to the parent to update the state, and then render it to the page.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+4.  Implement ability to remove and edit links.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+5.  Link up all components to the parent component and make sure all the functionality is working.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+6.  Make the data persist.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+7.  Bug fixing and refactoring.
 
-## Learn More
+8.  Deploy to Heroku.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Quality Control
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+I tried to adhere to good coding practices in this project.
 
-### Code Splitting
+- Descriptive Naming for functions and variables.
+- Separated concerns by structuring code into components.
+- Balancing out refactoring to minimise repetative code, but at no cost to its readability.
+- Using ES6 Javascript syntax throughout.
+- Using Hooks according to the new version of React.
+- Following ESlint suggestions and making them pass.
+- Small Git commits and good commit descriptions.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### Challenges
 
-### Analyzing the Bundle Size
+I spent some time getting used to React Hooks expecially using UseEffect when I was trying to retrieve links from the localStorage.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+I was struggling with Heroku because of an error H10 was cousing my app crashing. At the end, after some research, I figured out that I was not running the right command To initialise an Heroku's app when using create-react-app tool.
