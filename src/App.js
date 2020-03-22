@@ -1,29 +1,47 @@
-import React,{ useState} from 'react';
+import React,{ useEffect, useState} from 'react';
 import Header from './components/header';
 import Form from './components/form';
 import LinkItem from './components/linkItem';
+import { setItemLS,readLS  } from './utils';
 import './styles/App.scss';
 
 function App() {
   const [links, setLinks] = useState([])
   const [id, setID] = useState(0)
 
+  useEffect(() => {
+    // Get Links from localStorage
+    const getLinks = readLS('links').slice()
+    if(getLinks){
+      setLinks(JSON.parse(getLinks))
+    }
+},[]);
+
+  const setLocalStorage = (links) => {
+    // set localStorage
+     setItemLS('links', JSON.stringify(links));
+ }
+
   const addLink = (linkText) => {
     setID(id + 1)
     const newLinksArray = [...links, { id , link: linkText }];
     setLinks(newLinksArray)
+    setLocalStorage(newLinksArray)
   }
   const removeLink = (id) => {
     const newLinksArray = links.filter((link) => link.id !== id)
     setLinks(newLinksArray)
+    setLocalStorage(newLinksArray)
   }
 
   const editLink = (value, id) => {
+    // Find link to edit
     const linkToEdit = links.find((link) => link.id === id)
     if(linkToEdit){
-      const newArray = links.slice()
-      newArray[id].link = value
-      setLinks(newArray)
+      const newLinksArray = links.slice()
+      newLinksArray[id].link = value
+      setLinks(newLinksArray)
+      setLocalStorage(newLinksArray)
     }
   }
     return (
@@ -33,7 +51,7 @@ function App() {
           <Form handleLink={addLink}/>
           <ul>
             {
-              links.map((link) => {
+              links && links.map((link) => {
                 return <LinkItem link={link} key={link.id} id={link.id} removeLink={removeLink} editLink={editLink}/>
               })
             }
