@@ -16,8 +16,8 @@ This web app imitates a bookmark manager.
 ```
 git clone https://github.com/Gia1987/bookmark-react.git
 cd bookmark-react
-npm install
-npm start
+npm run install
+npm run start
 ```
 
 ### Tech Stack
